@@ -3,7 +3,7 @@ import Image from "next/image";
 import Banners from "../components/Banners";
 import Features from "../components/Features";
 import Layout from "../components/Layout";
-import Slider from "../components/Slider/Slider";
+import SliderComponent from "../components/Slider/Slider";
 /* import styles from "../styles/Home.module.css"; */
 import Demo from "./Demo/Demo";
 
@@ -17,7 +17,7 @@ export default function Home() {
       </Head>
 
       <Layout>
-        <Slider />
+        <SliderComponent />
         <Features />
         <Banners />
       </Layout>
