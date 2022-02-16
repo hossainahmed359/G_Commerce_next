@@ -4,9 +4,10 @@ import Banners from "../components/Banners";
 import CategoriesSection from "../components/Categories/CategoriesSection";
 import Features from "../components/Features";
 import Layout from "../components/Layout";
-import SliderComponent from "../components/Slider/Slider";
+import TopBanner from "../components/Slider/Slider";
 /* import styles from "../styles/Home.module.css"; */
 import Demo from "./Demo/Demo";
+import ProductGroupSection from './../components/ProductGroup/ProductGroupSection/index';
 
 export default function Home() {
   return (
@@ -18,10 +19,11 @@ export default function Home() {
       </Head>
 
       <Layout>
-        <SliderComponent />
+        <TopBanner />
         <Features />
         <Banners />
         <CategoriesSection />
+        <ProductGroupSection />
       </Layout>
 
       <footer></footer>

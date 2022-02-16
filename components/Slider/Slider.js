@@ -2,7 +2,7 @@ import React from "react";
 import BannerCreator from "../Banners/BannerCreator";
 import Slider from "react-slick";
 
-export default function SliderComponent() {
+export default function TopBanner() {
 
   var settings = {
     dots: true,
@@ -16,7 +16,6 @@ export default function SliderComponent() {
     <>
       <div className="home-v1-slider home-slider">
         <Slider {...settings}>
-
           <BannerCreator
             bannerType={"slider"}
             bannerLink={"https://www.google.com/"}
