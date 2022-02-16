@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Banners from "../components/Banners";
+import CategoriesSection from "../components/Categories/CategoriesSection";
 import Features from "../components/Features";
 import Layout from "../components/Layout";
 import SliderComponent from "../components/Slider/Slider";
@@ -20,6 +21,7 @@ export default function Home() {
         <SliderComponent />
         <Features />
         <Banners />
+        <CategoriesSection />
       </Layout>
 
       <footer></footer>
