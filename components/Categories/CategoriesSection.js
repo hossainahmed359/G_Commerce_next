@@ -50,7 +50,6 @@ export default function CategoriesSection() {
 
   let settings = {
     infinite: false,
-    dot: true,
     speed: 500,
     slidesToShow: 7,
     slidesToScroll: 4,
@@ -97,13 +96,7 @@ export default function CategoriesSection() {
         </header>
 
         {/******** Slider  Section ********/}
-        <div
-          className="products-carousel"
-          id="new-arrival-carousel"
-          data-ride="tm-slick-carousel"
-          data-wrap=".products"
-          data-slick='{"infinite":false,"slidesToShow":8,"slidesToScroll":8,"dots":true,"arrows":true,"prevArrow":"&lt;a href=\"#\"&gt;&lt;i className=\"tm tm-arrow-left\"&gt;&lt;\/i&gt;&lt;\/a&gt;","nextArrow":"&lt;a href=\"#\"&gt;&lt;i className=\"tm tm-arrow-right\"&gt;&lt;\/i&gt;&lt;\/a&gt;","appendArrows":"#homev12-carousel-1 .custom-slick-nav","responsive":[{"breakpoint":650,"settings":{"slidesToShow":1,"slidesToScroll":1}},{"breakpoint":780,"settings":{"slidesToShow":3,"slidesToScroll":3}},{"breakpoint":1200,"settings":{"slidesToShow":4,"slidesToScroll":4}},{"breakpoint":1400,"settings":{"slidesToShow":6,"slidesToScroll":6}}]}'
-        >
+        <div className="products-carousel">
           <div className="container-fluid">
             <div className="woocommerce ">
               {/******** Slider ********/}
