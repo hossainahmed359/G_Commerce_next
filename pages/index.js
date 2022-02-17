@@ -7,7 +7,8 @@ import Layout from "../components/Layout";
 import TopBanner from "../components/Slider/Slider";
 /* import styles from "../styles/Home.module.css"; */
 import Demo from "./Demo/Demo";
-import ProductGroupSection from './../components/ProductGroup/ProductGroupSection/index';
+import ProductGroupSection from "./../components/ProductGroup/ProductGroupSection/index";
+import CategoryItem from "../components/Categories/CategoryItem";
 
 export default function Home() {
   return (
