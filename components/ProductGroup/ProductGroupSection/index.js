@@ -1,88 +1,33 @@
-import React, { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
-import getProducts from "../../../pages/api/products";
 import SingleProduct from "./SingleProduct";
 
-import Link from "next/link";
-import { useRouter } from "next/router";
-
 export default function ProductGroupSection() {
-  const router = useRouter();
   const [products, setProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
   const [categories, setCategories] = useState([]);
-  /*  */
   const [activeTab, setActiveTab] = useState();
-  useEffect(() => {
-    const categories = [...new Set(products.map((i) => i.category))];
-    setCategories(categories);
-    console.log(categories);
-  }, [products]);
 
-  /* 
-  const [categoryTab, setCategoryTab] = useState([
-    {
-      groupName: "Android Phones",
-      active: true,
-      groupId: 1,
-    },
-    {
-      groupName: "IOS Phones",
-      active: false,
-      groupId: 2,
-    },
-    {
-      groupName: "Tablets",
-      active: false,
-      groupId: 3,
-    },
-    {
-      groupName: "Accesorries",
-      active: false,
-      groupId: 4,
-    },
-  ]);
- */
-  // Example Fetch API
+  // **************** Example Fetch API ****************
   const fetchProducts = async () => {
     const response = await fetch("/api/products");
     const data = await response.json();
     setProducts(data);
   };
 
-  // Render on load
+  // **************** Load Products ****************
   useEffect(() => {
     fetchProducts();
-    // filtereProductsFunction("Android Phones");
   }, []);
 
-  //*****  Toggle Active Tab Function
-  // const toggleActive = (tabName) => {
-  //   let newCategoryTab = [];
-  //   categoryTab.map((tab) => {
-  //     if (tab.groupName === tabName) {
-  //       tab = { ...tab, active: true };
-  //       newCategoryTab.push(tab);
-  //     } else {
-  //       tab = { ...tab, active: false };
+  // **************** Set Product Categories ****************
+  useEffect(() => {
+    const categories = [...new Set(products.map((i) => i.category))];
+    setCategories(categories);
+    setActiveTab(categories[0]);
+  }, [products]);
 
-  //       newCategoryTab.push(tab);
-  //     }
-  //   });
-  //   /* setCategoryTab(newCategoryTab); */
-  // };
-
-  //***** Filter Items
-  /*   const filtereProductsFunction = (tabName) => {
-    // logic here
-    toggleActive(tabName);
-    const filterProducts = products.filter((product) => {
-      return product.category === tabName;
-    });
-    setFilteredProducts(filterProducts);
-  };
- */
-  // ******** Slider settings
+  // **************** Slider settings ****************
 
   let settings = {
     infinite: false,
@@ -129,30 +74,20 @@ export default function ProductGroupSection() {
                 return (
                   <>
                     <li
-                      /*  onClick={() => filtereProductsFunction(item.groupName)} */
+                      onClick={() => {
+                        setActiveTab(item);
+                      }}
                       className="nav-item"
                     >
-                      {console.log(item)}
-                      <Link href={`#${categories.indexOf(item)}`}>
+                      <Link href={`#${item}`}>
                         <a
                           className={
-                            router.pathname == `#p${categories.indexOf(item)}`
-                              ? "nav-link active"
-                              : "nav-link"
+                            item === activeTab ? "nav-link active" : "nav-link"
                           }
                         >
                           {item}
                         </a>
                       </Link>
-                      {/* <a
-                        className={`nav-link ${
-                          item.active === true && "active"
-                        }`}
-                        href={`/#prouduct-group-${item}`}
-                        data-toggle="tab"
-                      >
-                        {item}
-                      </a> */}
                     </li>
                   </>
                 );
@@ -160,12 +95,12 @@ export default function ProductGroupSection() {
             </ul>
           </header>
           {/* <!-- .section-header --> */}
-          {/******** Slider  Section ********/}
+          {/**************** Slider  Section ****************/}
           <div className="products-carousel">
             <div className="container-fluid">
               <div className="woocommerce ">
-                {/******** Slider ********/}
-                {/* <Slider {...settings} className="products">
+                {/**************** Slider ****************/}
+                <Slider {...settings} className="products">
                   {products
                     .filter((p) => p.category === activeTab)
                     .map((product) => {
@@ -176,7 +111,7 @@ export default function ProductGroupSection() {
                         />
                       );
                     })}
-                </Slider> */}
+                </Slider>
               </div>
             </div>
           </div>
