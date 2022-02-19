@@ -122,3 +122,19 @@ export default function ProductGroupSection() {
     </>
   );
 }
+
+
+/* 
+<Slider>
+  
+</Slider>
+
+<ProductGroup 
+    sliderSettings={}
+    product={}
+    nav={boolean}
+    tabFilter={categories}
+
+/>
+
+*/
