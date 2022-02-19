@@ -107,7 +107,7 @@ export default function CategoriesSection() {
                     return (
                       <>
                         <CategoryItem
-                          key={Array[item]}
+                          key={Math.floor(Math.random() * 1000)}
                           link={"https://www.google.com/"}
                           imageSource={"https://i.ibb.co/5Ggw11D/10-7.jpg"}
                           categoryTitle={"Category"}
